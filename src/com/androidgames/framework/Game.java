@@ -13,6 +13,6 @@ public interface Game {
 	
 	public Screen getCurrentScreen();
 	
-	public Screen getScreen();
+	public Screen getStartScreen();
 	
 }
