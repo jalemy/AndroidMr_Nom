@@ -31,15 +31,14 @@ public class MainMenuScreen extends Screen {
 					}
 				}
 				if (inBounds(event, 64, 220, 192, 42)) {
-					game.setScreen(new GameScreen(game)) {
+					game.setScreen(new GameScreen(game));
 						if (Settings.soundEnabled){
 							Assets.click.play(1);
 						}
 						return;
-					}
 				}
 				if (inBounds(event, 64, 220 + 42, 192, 42)) {
-					game.setScreen(new HighscoreScreen(game));;
+					game.setScreen(new HighScoreScreen(game));;
 					if (Settings.soundEnabled) {
 						Assets.click.play(1);
 					}
