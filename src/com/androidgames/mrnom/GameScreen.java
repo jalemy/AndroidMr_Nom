@@ -3,6 +3,7 @@ package com.androidgames.mrnom;
 import java.util.List;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import com.androidgames.framework.Game;
 import com.androidgames.framework.Graphics;
@@ -17,6 +18,13 @@ public class GameScreen extends Screen {
 		Paused,
 		GameOver
 	}
+	
+	// TODO
+	float lastTouchX;
+	float lastTouchY;
+	float currentX;
+	float currentY;
+	// -------------TODO
 	
 	GameState state = GameState.Ready;
 	World world;
@@ -56,6 +64,42 @@ public class GameScreen extends Screen {
 		int len = touchEvents.size();
 		for (int i = 0; i < len; i++) {
 			TouchEvent event = touchEvents.get(i);
+			
+			// フリック操作での移動を実装, ちょっと適当な形になってるので要修正
+			if (event.type == TouchEvent.TOUCH_DOWN) {
+				if (event.y < 416) {
+					Graphics g = game.getGraphics();
+					drawText(g, "touch down", 10, 10);
+					lastTouchX = event.x;
+					lastTouchY = event.y;
+				}
+			}
+			if (event.type == TouchEvent.TOUCH_UP) {
+				currentX = event.x;
+				currentY = event.y;
+
+				float moveX = lastTouchX - currentX;
+				float moveY = lastTouchY - currentY;
+				if (event.y < 416) {
+					if (Math.abs(moveX) > Math.abs(moveY)) {
+						if (moveX < 0) {
+							world.snake.direction = 3;
+						}
+						if (moveX > 0) {
+							world.snake.direction = 1;
+						}
+					} else { 
+						if (moveY < 0) {
+							world.snake.direction = 2;
+						}
+						if (moveY > 0) {
+							world.snake.direction = 0;
+						}
+					}
+				}
+			}
+			// --------------------------------------------
+			
 			if (event.type == TouchEvent.TOUCH_UP) {
 				if (event.x < 64 && event.y < 64) {
 					if (Settings.soundEnabled) {
@@ -107,6 +151,7 @@ public class GameScreen extends Screen {
 						state = GameState.Running;
 						return;
 					}
+					
 					if (event.y > 148 && event.y < 196) {
 						if (Settings.soundEnabled) {
 							Assets.click.play(1);
@@ -183,7 +228,7 @@ public class GameScreen extends Screen {
 			SnakePart part = snake.parts.get(i);
 			x = part.x * 32;
 			y = part.y * 32;
-			g.drawPixmap(stainPixmap, x, y);
+			g.drawPixmap(Assets.tail, x, y);
 		}
 		
 		Pixmap headPixmap = null;

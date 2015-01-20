@@ -82,7 +82,7 @@ public class World {
 				} else {
 					placeStain();
 				}
-				if (score % 100 == 0 && tick - TICK_DECREMENT > 0) {
+				if (score % 50 == 0 && tick - TICK_DECREMENT > 0) {
 					tick -= TICK_DECREMENT;
 				}
 			}

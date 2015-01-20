@@ -27,7 +27,7 @@ public class LoadingScreen extends Screen {
 		Assets.headUp = g.newPixmap("headup.png", PixmapFormat.ARGB4444);
 		Assets.headLeft = g.newPixmap("headleft.png", PixmapFormat.ARGB4444);
 		Assets.headDown = g.newPixmap("headdown.png", PixmapFormat.ARGB4444);
-		Assets.headRight = g.newPixmap("headrihgt.png", PixmapFormat.ARGB4444);
+		Assets.headRight = g.newPixmap("headright.png", PixmapFormat.ARGB4444);
 		Assets.tail = g.newPixmap("tail.png", PixmapFormat.ARGB4444);
 		Assets.stain1 = g.newPixmap("stain1.png", PixmapFormat.ARGB4444);
 		Assets.stain2 = g.newPixmap("stain2.png", PixmapFormat.ARGB4444);
