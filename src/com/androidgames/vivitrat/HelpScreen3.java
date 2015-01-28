@@ -1,4 +1,4 @@
-package com.androidgames.mrnom;
+package com.androidgames.vivitrat;
 
 import java.util.List;
 

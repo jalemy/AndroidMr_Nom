@@ -1,4 +1,4 @@
-package com.androidgames.mrnom;
+package com.androidgames.vivitrat;
 
 public class Stain {
 	public static final int TYPE_1 = 0;

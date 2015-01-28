@@ -1,4 +1,4 @@
-package com.androidgames.mrnom;
+package com.androidgames.vivitrat;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -60,7 +60,7 @@ public class Settings {
 		for (int i = 0; i < 5; i++) {
 			if (highscores[i] < score) {
 				for (int j = 4; j > i; j--) {
-					highscores[i] = highscores[j - 1];
+					highscores[j] = highscores[j - 1];
 				}
 				highscores[i] = score;
 				break;

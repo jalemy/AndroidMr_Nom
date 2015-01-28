@@ -1,15 +1,15 @@
-package com.androidgames.mrnom;
+package com.androidgames.vivitrat;
 
 import java.util.List;
 
 import com.androidgames.framework.Game;
 import com.androidgames.framework.Graphics;
-import com.androidgames.framework.Screen;
 import com.androidgames.framework.Input.TouchEvent;
+import com.androidgames.framework.Screen;
 
-public class HelpScreen2 extends Screen {
+public class HelpScreen extends Screen {
 
-	public HelpScreen2(Game game) {
+	public HelpScreen(Game game) {
 		super(game);
 	}
 
@@ -23,7 +23,7 @@ public class HelpScreen2 extends Screen {
 			TouchEvent event = touchEvents.get(i);
 			if (event.type == TouchEvent.TOUCH_UP) {
 				if (event.x > 256 && event.y > 416) {
-					game.setScreen(new HelpScreen3(game));
+					game.setScreen(new HelpScreen2(game));
 					if (Settings.soundEnabled) {
 						Assets.click.play(1);
 					}
@@ -37,7 +37,7 @@ public class HelpScreen2 extends Screen {
 	public void present(float deltaTime) {
 		Graphics g = game.getGraphics();
 		g.drawPixmap(Assets.background, 0, 0);
-		g.drawPixmap(Assets.help2, 64, 100);
+		g.drawPixmap(Assets.help1, 64, 100);
 		g.drawPixmap(Assets.buttons, 256, 416, 0, 64, 64, 64);
 	}
 

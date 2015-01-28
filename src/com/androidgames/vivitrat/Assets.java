@@ -1,4 +1,4 @@
-package com.androidgames.mrnom;
+package com.androidgames.vivitrat;
 
 import com.androidgames.framework.Pixmap;
 import com.androidgames.framework.Sound;

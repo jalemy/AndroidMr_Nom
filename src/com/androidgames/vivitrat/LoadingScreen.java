@@ -1,4 +1,4 @@
-package com.androidgames.mrnom;
+package com.androidgames.vivitrat;
 
 import com.androidgames.framework.Game;
 import com.androidgames.framework.Graphics;

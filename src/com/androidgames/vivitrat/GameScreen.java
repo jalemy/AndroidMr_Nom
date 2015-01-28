@@ -1,9 +1,8 @@
-package com.androidgames.mrnom;
+package com.androidgames.vivitrat;
 
 import java.util.List;
 
 import android.graphics.Color;
-import android.util.Log;
 
 import com.androidgames.framework.Game;
 import com.androidgames.framework.Graphics;
