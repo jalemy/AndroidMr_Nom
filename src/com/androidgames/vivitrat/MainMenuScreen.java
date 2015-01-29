@@ -74,7 +74,7 @@ public class MainMenuScreen extends Screen {
 		if (Settings.soundEnabled) {
 			g.drawPixmap(Assets.buttons, 0, 416, 0, 0, 64, 64);
 		} else {
-			g.drawPixmap(Assets.buttons, 0, 416, 64, 0, 64, 64);
+			g.drawPixmap(Assets.buttons, 0, 416, 0, 64, 64, 64);
 		}
 	}
 

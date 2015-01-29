@@ -14,28 +14,31 @@ public class Snake {
 	
 	public Snake() {
 		direction = UP;
-		parts.add(new SnakePart(5, 6));
-		parts.add(new SnakePart(5, 7));
-		parts.add(new SnakePart(5, 8));
+		parts.add(new SnakePart(5, 6, UP));
+		parts.add(new SnakePart(5, 7, UP));
 	}
 	
 	public void turnLeft() {
 		direction += 1;
+		parts.get(0).direction += 1;
 		if (direction > RIGHT) {
 			direction = UP;
+			parts.get(0).direction = UP;
 		}
 	}
 	
 	public void turnRight() {
 		direction -= 1;
+		parts.get(0).direction -= 1;
 		if (direction < UP) {
 			direction = RIGHT;
+			parts.get(0).direction = RIGHT;
 		}
 	}
 	
 	public void eat() {
 		SnakePart end = parts.get(parts.size() - 1);
-		parts.add(new SnakePart(end.x, end.y));
+		parts.add(new SnakePart(end.x, end.y, end.direction));
 	}
 	
 	public void advance() {
@@ -47,6 +50,7 @@ public class Snake {
 			SnakePart part = parts.get(i);
 			part.x = before.x;
 			part.y = before.y;
+			part.direction = before.direction;
 		}
 		
 		if (direction == UP) {

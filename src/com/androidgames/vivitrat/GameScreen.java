@@ -66,34 +66,35 @@ public class GameScreen extends Screen {
 			
 			// フリック操作での移動を実装, ちょっと適当な形になってるので要修正
 			if (event.type == TouchEvent.TOUCH_DOWN) {
-				if (event.y < 416) {
 					Graphics g = game.getGraphics();
 					drawText(g, "touch down", 10, 10);
 					lastTouchX = event.x;
 					lastTouchY = event.y;
-				}
 			}
+			
 			if (event.type == TouchEvent.TOUCH_UP) {
 				currentX = event.x;
 				currentY = event.y;
 
 				float moveX = lastTouchX - currentX;
 				float moveY = lastTouchY - currentY;
-				if (event.y < 416) {
-					if (Math.abs(moveX) > Math.abs(moveY)) {
-						if (moveX < 0) {
-							world.snake.direction = 3;
-						}
-						if (moveX > 0) {
-							world.snake.direction = 1;
-						}
-					} else { 
-						if (moveY < 0) {
-							world.snake.direction = 2;
-						}
-						if (moveY > 0) {
-							world.snake.direction = 0;
-						}
+				if (Math.abs(moveX) > Math.abs(moveY)) {
+					if (moveX < 0) {
+						world.snake.direction = 3;
+						world.snake.parts.get(0).direction = 3;
+					}
+					if (moveX > 0) {
+						world.snake.direction = 1;
+						world.snake.parts.get(0).direction = 1;
+					}
+				} else { 
+					if (moveY < 0) {
+						world.snake.direction = 2;
+						world.snake.parts.get(0).direction = 2;
+					}
+					if (moveY > 0) {
+						world.snake.direction = 0;
+						world.snake.parts.get(0).direction = 0;
 					}
 				}
 			}
@@ -209,13 +210,13 @@ public class GameScreen extends Screen {
 		
 		Pixmap stainPixmap = null;
 		if (stain.type == Stain.TYPE_1) {
-			stainPixmap = Assets.stain1;
+			stainPixmap = Assets.food1;
 		}
 		if (stain.type == Stain.TYPE_2) {
-			stainPixmap = Assets.stain2;
+			stainPixmap = Assets.food2;
 		}
 		if (stain.type == Stain.TYPE_3) {
-			stainPixmap = Assets.stain3;
+			stainPixmap = Assets.food3;
 		}
 		
 		int x = stain.x * 32;
@@ -227,7 +228,19 @@ public class GameScreen extends Screen {
 			SnakePart part = snake.parts.get(i);
 			x = part.x * 32;
 			y = part.y * 32;
-			g.drawPixmap(Assets.tail, x, y);
+			if (part.direction == SnakePart.UP) {
+				g.drawPixmap(Assets.tailUp, x, y);
+			}
+			if (part.direction == SnakePart.LEFT) {
+				g.drawPixmap(Assets.tailLeft, x, y);
+			}
+			if (part.direction == SnakePart.DOWN) {
+				g.drawPixmap(Assets.tailDown, x, y);
+			}
+			if (part.direction == SnakePart.RIGHT){
+				g.drawPixmap(Assets.tailRight, x, y);
+			}
+
 		}
 		
 		Pixmap headPixmap = null;
@@ -259,10 +272,10 @@ public class GameScreen extends Screen {
 	private void drawRunningUI() {
 		Graphics g = game.getGraphics();
 		
-		g.drawPixmap(Assets.buttons, 0, 0, 64, 128, 64, 64);
+		g.drawPixmap(Assets.buttons, 0, 0, 64, 0, 64, 64);
 		g.drawLine(0, 416, 480, 416, Color.BLACK);
 		g.drawPixmap(Assets.buttons,  0,  416, 64, 64, 64, 64);
-		g.drawPixmap(Assets.buttons, 256, 416, 0, 64, 64, 64);
+		g.drawPixmap(Assets.buttons, 256, 416, 64, 128, 64, 64);
 	}
 	
 	private void drawPausedUI() {

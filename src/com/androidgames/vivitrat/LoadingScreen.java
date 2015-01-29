@@ -28,13 +28,16 @@ public class LoadingScreen extends Screen {
 		Assets.headLeft = g.newPixmap("headleft.png", PixmapFormat.ARGB4444);
 		Assets.headDown = g.newPixmap("headdown.png", PixmapFormat.ARGB4444);
 		Assets.headRight = g.newPixmap("headright.png", PixmapFormat.ARGB4444);
-		Assets.tail = g.newPixmap("tail.png", PixmapFormat.ARGB4444);
-		Assets.stain1 = g.newPixmap("stain1.png", PixmapFormat.ARGB4444);
-		Assets.stain2 = g.newPixmap("stain2.png", PixmapFormat.ARGB4444);
-		Assets.stain3 = g.newPixmap("stain3.png", PixmapFormat.ARGB4444);
-		Assets.click = game.getAudio().newSound("click.ogg");
-		Assets.eat = game.getAudio().newSound("eat.ogg");
-		Assets.bitten = game.getAudio().newSound("bitten.ogg");
+		Assets.tailUp = g.newPixmap("tailup.png", PixmapFormat.ARGB4444);
+		Assets.tailLeft = g.newPixmap("tailleft.png", PixmapFormat.ARGB4444);
+		Assets.tailDown = g.newPixmap("taildown.png", PixmapFormat.ARGB4444);
+		Assets.tailRight = g.newPixmap("tailright.png", PixmapFormat.ARGB4444);
+		Assets.food1 = g.newPixmap("food1.png", PixmapFormat.ARGB4444);
+		Assets.food2 = g.newPixmap("food2.png", PixmapFormat.ARGB4444);
+		Assets.food3 = g.newPixmap("food3.png", PixmapFormat.ARGB4444);
+		Assets.click = game.getAudio().newSound("click.mp3");
+		Assets.eat = game.getAudio().newSound("eat.mp3");
+		Assets.bitten = game.getAudio().newSound("bitten.mp3");
 		Settings.load(game.getFileIO());
 		game.setScreen(new MainMenuScreen(game));
 	}

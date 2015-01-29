@@ -19,10 +19,13 @@ public class Assets {
 	public static Pixmap headLeft;
 	public static Pixmap headDown;
 	public static Pixmap headRight;
-	public static Pixmap tail;
-	public static Pixmap stain1;
-	public static Pixmap stain2;
-	public static Pixmap stain3;
+	public static Pixmap tailUp;
+	public static Pixmap tailLeft;
+	public static Pixmap tailDown;
+	public static Pixmap tailRight;
+	public static Pixmap food1;
+	public static Pixmap food2;
+	public static Pixmap food3;
 	
 	public static Sound click;
 	public static Sound eat;
