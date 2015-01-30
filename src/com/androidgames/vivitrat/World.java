@@ -62,6 +62,10 @@ public class World {
 			return;
 		}
 		
+		if (score == 0) {
+			tick = TICK_INITIAL;
+		}
+
 		tickTime += deltaTime;
 		
 		while (tickTime > tick) {

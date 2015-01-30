@@ -16,6 +16,7 @@ public class Snake {
 		direction = UP;
 		parts.add(new SnakePart(5, 6, UP));
 		parts.add(new SnakePart(5, 7, UP));
+		parts.add(new SnakePart(5, 8, UP));
 	}
 	
 	public void turnLeft() {

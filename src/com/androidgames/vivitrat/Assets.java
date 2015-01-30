@@ -26,6 +26,7 @@ public class Assets {
 	public static Pixmap food1;
 	public static Pixmap food2;
 	public static Pixmap food3;
+	public static Pixmap tweet;
 	
 	public static Sound click;
 	public static Sound eat;

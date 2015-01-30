@@ -1,8 +1,13 @@
 package com.androidgames.vivitrat;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 
 import com.androidgames.framework.Game;
 import com.androidgames.framework.Graphics;
@@ -178,6 +183,7 @@ public class GameScreen extends Screen {
 					return;
 				}
 			}
+			
 		}
 	}
 	
@@ -266,14 +272,14 @@ public class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 		
 		g.drawPixmap(Assets.ready, 47, 100);
-		g.drawLine(0,  416, 480, 416, Color.BLACK);
+		g.drawLine(0,  416, 480, 416, Color.RED);
 	}
 	
 	private void drawRunningUI() {
 		Graphics g = game.getGraphics();
 		
 		g.drawPixmap(Assets.buttons, 0, 0, 64, 0, 64, 64);
-		g.drawLine(0, 416, 480, 416, Color.BLACK);
+		g.drawLine(0, 416, 480, 416, Color.RED);
 		g.drawPixmap(Assets.buttons,  0,  416, 64, 64, 64, 64);
 		g.drawPixmap(Assets.buttons, 256, 416, 64, 128, 64, 64);
 	}
@@ -282,15 +288,15 @@ public class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 		
 		g.drawPixmap(Assets.pause, 80, 100);
-		g.drawLine(0,  416, 480, 416, Color.BLACK);
+		g.drawLine(0,  416, 480, 416, Color.RED);
 	}
 	
 	private void drawGameOverUI() {
 		Graphics g = game.getGraphics();
 		
 		g.drawPixmap(Assets.gameOver, 62, 100);
-		g.drawPixmap(Assets.buttons, 128, 200, 0, 128, 64, 64);
-		g.drawLine(0,  416, 480, 416, Color.BLACK);
+		g.drawPixmap(Assets.buttons, 128, 192, 0, 128, 64, 64);
+		g.drawLine(0,  416, 480, 416, Color.RED);
 	}
 	
 	public void drawText(Graphics g, String line, int x, int y) {
